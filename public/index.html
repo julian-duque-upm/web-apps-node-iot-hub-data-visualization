@@ -6,12 +6,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"" type="text/javascript" charset="utf-8"></script>
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous" type="text/javascript" charset="utf-8"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/chart-device-data.js" type="text/javascript" charset="utf-8"></script>
     <link href="css/style.css" rel="stylesheet" />
 
-    <title>Temperature &amp; Humidity Real-time Data</title>
+    <title>Traffic Light Monitoring Dashboard - CCTeam6</title>
 </head>
 
 <body>
@@ -20,11 +20,37 @@
             <span id="deviceCount">0 devices</span>
             <select id="listOfDevices" class="select_box"></select>
         </span>
-        <span>Temperature & Humidity Real-time Data</span>
+        <span>Traffic Light Monitoring Dashboard</span>
     </h1>
-    <div>
-        <canvas id="iotChart"></canvas>
+
+    <div class="dashboard">
+        <div class="card">
+            <h2>Traffic Light Status</h2>
+            <div class="traffic-light">
+                <div id="red-light" class="light red"></div>
+                <div id="yellow-light" class="light yellow"></div>
+                <div id="green-light" class="light green"></div>
+            </div>
+            <div class="metrics">
+                <h3>Current Status</h3>
+                <p>Light Color: <span id="lightColor">--</span></p>
+                <p>Light Intensity: <span id="intensity">--</span>%</p>
+                <p>Temperature: <span id="temperature">--</span>°C</p>
+                <p>Power Level: <span id="powerLevel">--</span>%</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Historical Data</h2>
+            <div class="chart-container">
+                <canvas id="iotChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Message Log</h2>
+        <div id="messageLog" class="message-log"></div>
     </div>
 </body>
-
 </html>
