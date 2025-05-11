@@ -1,15 +1,89 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  padding: 50px;
+  padding: 30px;
   margin: 0;
   text-align: center;
+  background: #f5f7fa;
 }
 
-.flexHeader {
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 24px;
+  margin-bottom: 20px;
+  min-width: 300px;
+  flex: 1 1 350px;
+}
+
+.traffic-light {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #222;
+  width: 80px;
+  height: 240px;
+  border-radius: 20px;
+  padding: 16px 0;
+  margin: 0 auto 24px auto;
+}
+
+.light {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  margin: 10px 0;
+  background: #444;
+  box-shadow: 0 0 8px #222;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.light.red.active {
+  background: #ff3333;
+  box-shadow: 0 0 24px #ff3333;
+}
+
+.light.yellow.active {
+  background: #ffe066;
+  box-shadow: 0 0 24px #ffe066;
+}
+
+.light.green.active {
+  background: #51cf66;
+  box-shadow: 0 0 24px #51cf66;
+}
+
+.metrics {
+  margin-top: 8px;
+  text-align: left;
+}
+
+.metrics p {
+  margin: 6px 0;
+  font-size: 16px;
+}
+
+#messageLog {
+  background: #f8f9fa;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  padding: 10px;
+  text-align: left;
+  font-family: monospace;
+  height: 200px;
+  overflow-y: auto;
 }
 
 a {
@@ -27,20 +101,29 @@ body select {
   color: #444444;
   line-height: 16px;
   appearance: none;
-  /* this is must */ -webkit-appearance: none;
+  -webkit-appearance: none;
   -moz-appearance: none;
 }
 
-/* body select.select_box option */
 body select option {
   padding: 0 4px;
 }
 
-/* for Edge */
 select::-ms-expand {
   display: none;
 }
 
 select:disabled::-ms-expand {
   background: #f60;
+}
+
+@media (max-width: 900px) {
+  .dashboard {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .card {
+    min-width: unset;
+    width: 100%;
+  }
 }
